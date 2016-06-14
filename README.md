@@ -1,9 +1,14 @@
-homebrew-data-analysis
+homebrew-gmr
 =============
 
-Homebrew Tap for Data Analysis tools.
+Personal Homebrew Tap.
 
-This homebrew repository contains software for statistics, machine learning and data analysis.
+
+This homebrew repository contains software for:
+ - statistics
+ - machine learning
+ - molecular modelling
+ - analytical chemistry
 
 
 How do I install these formulae?
@@ -11,18 +16,11 @@ How do I install these formulae?
 
 You can Tap this repository using the following command:
 
-    brew tap zeld/data-analysis
+    brew tap gmrandazzo/homebrew-gmr
 
 
 If you want to remove this Tap:
 
-    brew untap zeld/data-analysis
+    brew untap gmrandazzo/homebrew-gmr
 
-
-Contributing
-------------
-
-If you want to contribute to this repository see the [contributing] guide.
-
-[contributing]: https://github.com/Homebrew/homebrew-science/blob/master/CONTRIBUTING.md
 
