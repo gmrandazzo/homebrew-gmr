@@ -2,7 +2,7 @@ require "formula"
 
 class QtAssistantCompat < Formula
   homepage "http://blog.qt.digia.com/blog/2010/06/22/qt-assistant-compat-version-available-as-extra-source-package/"
-  url "ftp://ftp.qt.nokia.com/qt/source/qt-assistant-qassistantclient-library-compat-src-4.6.3.tar.gz"
+  url "http://download.qt.io/archive/qt/4.6/qt-assistant-qassistantclient-library-compat-src-4.6.3.tar.gz"
   sha1 "7a5e5155136c406e5b7eb880eed752f56625d10b"
 
   depends_on "qt"
