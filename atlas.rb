@@ -1,6 +1,6 @@
 require "formula"
 
-class atlas < Formula
+class Atlas < Formula
   homepage "http://math-atlas.sourceforge.net/"
   url "https://downloads.sourceforge.net/projects/math-atlas/files/Stable/3.10.2/atlas3.10.2.tar.bz2"
   sha1 "f1f883e201d70ff60d54a2af016b4afc83a2499b"
