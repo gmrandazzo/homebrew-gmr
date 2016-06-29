@@ -10,7 +10,7 @@ class Qtiplot < Formula
   depends_on "liborigin2"
   depends_on "libpng"
   depends_on "muparser"
-  depends_on "qt"
+  depends_on "qt" => [:recommended, "with-qt3support"]
   depends_on "qt-assistant-compat"
   depends_on "quazip"
   depends_on "sip"
