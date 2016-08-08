@@ -3,7 +3,7 @@ require "formula"
 class Qwtplot3d < Formula
   homepage "http://qwtplot3d.sourceforge.net"
   url "http://downloads.sourceforge.net/project/qwtplot3d/qwtplot3d/0.2.7/qwtplot3d-0.2.7.tgz"
-  sha1 "4463fafb8420a91825e165da7a296aaabd70abea"
+  sha256 "1208336b15e82e7a9d22cbc743e46f27e2fad716094a9c133138f259fa299a42"
 
   depends_on "qt"
   depends_on "gl2ps"

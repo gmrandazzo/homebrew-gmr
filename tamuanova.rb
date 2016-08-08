@@ -3,7 +3,7 @@ require "formula"
 class Tamuanova < Formula
   homepage "http://www.stat.tamu.edu/~aredd/tamuanova/"
   url "http://ftp.debian.org/debian/pool/main/t/tamuanova/tamuanova_0.2.orig.tar.gz"
-  sha1 "8c7ffae14ebe92f27d20ff1f0e325875fa6ced53"
+  sha256 "2583bd33bb9243709a5f44ad07677a8362bcca8816bd19f452eb4e3e375c213a"
 
   depends_on "qt"
   depends_on "gsl"

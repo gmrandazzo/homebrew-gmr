@@ -3,7 +3,7 @@ require "formula"
 class QtAssistantCompat < Formula
   homepage "http://blog.qt.digia.com/blog/2010/06/22/qt-assistant-compat-version-available-as-extra-source-package/"
   url "http://download.qt.io/archive/qt/4.6/qt-assistant-qassistantclient-library-compat-src-4.6.3.tar.gz"
-  sha1 "7a5e5155136c406e5b7eb880eed752f56625d10b"
+  sha256 "e698be8fc0d32c5f0b5b46cafcb8f615accaed524b864e58b99b64b7b5549c2d"
 
   depends_on "qt"
   depends_on "pkg-config" => :build

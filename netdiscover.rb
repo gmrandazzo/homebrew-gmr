@@ -3,7 +3,7 @@ require "formula"
 class Netdiscover < Formula
   homepage "http://nixgeneration.com/~jaime/netdiscover/"
   url "http://downloads.sourceforge.net/project/netdiscover/netdiscover/0.3-beta6/netdiscover-0.3-beta6.tar.gz"
-  sha1 "b6dfb89a0cbd14e398ae01f358bc56719c994856"
+  sha256 "19c367f823c49999e2c05c485cac0a5d5685d23c6b33deae1e957406571924db"
 
   #head do
   #  url "https://github.com/alexxy/netdiscover.git"

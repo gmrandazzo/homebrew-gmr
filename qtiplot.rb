@@ -3,7 +3,7 @@ require "formula"
 class Qtiplot < Formula
   homepage "http://www.qtiplot.com"
   url "https://downloads.sourceforge.net/project/qtiplot.berlios/qtiplot-0.9.8.9.tar.bz2"
-  sha1 "73b17dd9195c3d86750d5f1f5bdd4d5483c5fe30"
+  sha256 "a523ea259516d7581abaf2fe376507d152db32f71d88176cff18f5bc391b9ef0"
 
   depends_on "alglib"
   depends_on "gsl"

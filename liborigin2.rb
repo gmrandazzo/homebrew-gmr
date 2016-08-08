@@ -3,7 +3,7 @@ require "formula"
 class Liborigin2 < Formula
   homepage "http://software.proindependent.com/liborigin2/"
   url "https://downloads.sourceforge.net/project/qtiplot.berlios/liborigin2-20110829.zip"
-  sha1 "13851b17b21ec49375e4f5dfbd3ab4b9bf72f5be"
+  sha256 "51ebf6de57d2b44cd6f5ab772ed92154eec9598a14a6655967ebcf2d7f8da0a2"
 
   depends_on "boost"
   depends_on "qt"

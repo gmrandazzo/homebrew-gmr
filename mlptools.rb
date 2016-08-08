@@ -2,8 +2,8 @@ require "formula"
 
 class Mlptools < Formula
   homepage "http://mlp-tools.tk"
-  url "http://mlptools.altervista.org/downloads/mlp_tools_setup.zip"
-  sha1 "92b43edd8ef63f01f576cc4b975958ae1a6e57eb"
+  url "http://mlptools.altervista.org/downloads/MLPtools2_setup.zip"
+  sha256 "87b194864cbd7ff770afb3dbfb937fecbd714aaa04aaa2937d67052c89173d1c"
 
   depends_on "numpy"
   depends_on "pymol"

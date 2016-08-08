@@ -3,8 +3,7 @@ require "formula"
 class Atlas < Formula
   homepage "http://math-atlas.sourceforge.net/"
   url "http://downloads.sourceforge.net/project/math-atlas/Stable/3.10.2/atlas3.10.2.tar.bz2"
-  sha1 "f1f883e201d70ff60d54a2af016b4afc83a2499b"
-
+  sha256 "3aab139b118bf3fcdb4956fbd71676158d713ab0d3bccb2ae1dc3769db22102f"
 
   depends_on "cmake" => :build
   depends_on "libdnet"
