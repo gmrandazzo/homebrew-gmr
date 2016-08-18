@@ -2,39 +2,17 @@ require "formula"
 
 class Atlas < Formula
   homepage "http://math-atlas.sourceforge.net/"
-  url "http://downloads.sourceforge.net/project/math-atlas/Stable/3.10.2/atlas3.10.2.tar.bz2"
-  sha256 "3aab139b118bf3fcdb4956fbd71676158d713ab0d3bccb2ae1dc3769db22102f"
+  url "http://downloads.sourceforge.net/project/math-atlas/Stable/3.10.3/atlas3.10.3.tar.bz2"
+  sha256 "2688eb733a6c5f78a18ef32144039adcd62fabce66f2eb51dd59dde806a6d2b7"
 
-  depends_on "cmake" => :build
-  depends_on "libdnet"
-  depends_on "libnet"
-
+  depends_on "lapack"
+  depends_on "gcc"
+  
   def install
     mkdir "build" do
-      system "cmake", ".", *std_cmake_args
       system "../configure", "--prefix=#{prefix}"
+      system "make"
       system "make", "install"
     end
-  end
-  test do
-    # Esempio di test!
-    (testpath/"test.c").write <<-EOS.undent
-      #include <git2.h>
-
-      int main(int argc, char *argv[]) {
-        int options = git_libgit2_features();
-        return 0;
-      }
-    EOS
-    libssh2 = Formula["libssh2"]
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
-      -I#{include}
-      -I#{libssh2.opt_include}
-      -L#{lib}
-      -lgit2
-    ]
-    system ENV.cc, "test.c", "-o", "test", *flags
-    system "./test"
   end
 end
