@@ -1,0 +1,51 @@
+diff -Naur Molsketch-0.2.0-Source.orig/CMakeLists.txt Molsketch-0.2.0-Source.patch/CMakeLists.txt
+--- Molsketch-0.2.0-Source.orig/CMakeLists.txt	2009-12-05 20:46:55.000000000 +0100
++++ Molsketch-0.2.0-Source.patch/CMakeLists.txt	2014-11-03 11:01:48.000000000 +0100
+@@ -72,7 +72,7 @@
+ 
+ 
+ # Optional KDE4 for "KDE Part"
+-find_package(KDE4)
++#find_package(KDE4)
+ 
+ add_subdirectory(libmolsketch)
+ add_subdirectory(molsketch)
+diff -Naur Molsketch-0.2.0-Source.orig/libmolsketch/src/stereocenteritem.cpp Molsketch-0.2.0-Source.patch/libmolsketch/src/stereocenteritem.cpp
+--- Molsketch-0.2.0-Source.orig/libmolsketch/src/stereocenteritem.cpp	2009-12-05 20:46:54.000000000 +0100
++++ Molsketch-0.2.0-Source.patch/libmolsketch/src/stereocenteritem.cpp	2014-11-03 11:10:09.000000000 +0100
+@@ -63,7 +63,7 @@
+     graphsym.GetSymmetry(symmetry_classes);
+ 
+     //std::vector<unsigned long> atomIds = FindTetrahedralAtoms(obmol, symmetry_classes);
+-    std::vector<OpenBabel::StereogenicUnit> units = FindStereogenicUnits(obmol, symmetry_classes);
++    std::vector<OpenBabel::OBStereoUnit> units  = FindStereogenicUnits(obmol, symmetry_classes);
+     
+     for (unsigned int i = 0; i < units.size(); ++i) {
+       if (units.at(i).type == OpenBabel::OBStereo::Tetrahedral) {
+diff -Naur Molsketch-0.2.0-Source.orig/molsketch/src/CMakeLists.txt Molsketch-0.2.0-Source.patch/molsketch/src/CMakeLists.txt
+--- Molsketch-0.2.0-Source.orig/molsketch/src/CMakeLists.txt	2009-12-05 20:46:55.000000000 +0100
++++ Molsketch-0.2.0-Source.patch/molsketch/src/CMakeLists.txt	2014-11-03 12:13:42.000000000 +0100
+@@ -2,7 +2,7 @@
+ cmake_policy(SET CMP0003 NEW)
+ 
+ # Including qt4 and OpenBabel
+-set(QT_USE_QTASSISTANT TRUE)
++#set(QT_USE_QTASSISTANT TRUE)
+ set(QT_USE_QTSVG TRUE)
+ include(${QT_USE_FILE})
+ 
+@@ -49,12 +49,12 @@
+ 
+ 
+ # Create the main executable
+-include_directories(${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/src)
++include_directories(${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/src ${QT_ASSISTANT_INCLUDE})
+ link_directories(${CMAKE_BINARY_DIR}/lib)
+ add_executable(molsketch ${molsketch_SRCS} ${molsketch_UIS_H} ${molsketch_MOC_HDRS})
+ install(TARGETS molsketch DESTINATION bin)
+ # Link the code against libmolsKetch, Qt and OpenBabel
+-target_link_libraries(molsketch molsketch_LIB ${QT_LIBRARIES} ${OPENBABEL2_LIBRARIES})
++target_link_libraries(molsketch molsketch_LIB ${QT_LIBRARIES} ${OPENBABEL2_LIBRARIES} ${QT_ASSISTANT_LIBRARY})
+ 
+ 
+ # Install the documentation

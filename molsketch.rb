@@ -12,7 +12,7 @@ class Molsketch < Formula
 
   patch do
     url "https://raw.githubusercontent.com/zeld/patch/master/Molsketch_0.2.0_BuildPatch.patch"
-    sha1 "9a6519e31bed5d2043e74673abc4926b398c75df"
+    sha256 "af70c93f39920dfcaf1a894865d77f5860d2fcd0c7f50f1d220715f750dc861e"
   end
 
   def install
