@@ -6,7 +6,7 @@ class Qtiplot < Formula
   sha256 "a523ea259516d7581abaf2fe376507d152db32f71d88176cff18f5bc391b9ef0"
 
   depends_on "alglib"
-  depends_on "gsl"
+  depends_on "gsl1"
   depends_on "liborigin2"
   depends_on "libpng"
   depends_on "muparser"
