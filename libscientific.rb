@@ -8,8 +8,6 @@ class Libscientific < Formula
   def install
     mkdir "build" do
       args = std_cmake_args
-      #args << "-DQT_ASSISTANT_LIBRARY=#{Formula["qt-assistant-compat"].opt_lib}/QtAssistant.framework/QtAssistant"
-      #args << "-DQT_ASSISTANT_INCLUDE=#{Formula["qt-assistant-compat"].opt_include}/QtAssistant/"
       system "cmake", "..", *args
       system "make"
       system "make install"
