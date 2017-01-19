@@ -13,9 +13,10 @@ class Molsketch < Formula
     mkdir "build" do
       args = std_cmake_args
       args << "-DCMAKE_PREFIX_PATH=#{Formula["qt5"]}"
-      system "cmake", "..", *args
+      args << ".."
+      system "cmake", *args
       system "make"
-      system "make install"
+      system "make", "install"
     end
   end
 
