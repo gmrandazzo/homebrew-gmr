@@ -9,6 +9,8 @@ class Molsketch < Formula
   depends_on "open-babel"
   depends_on "qt5"
 
+  patch :DATA
+
   def install
     mkdir "build" do
       args = std_cmake_args
@@ -25,3 +27,26 @@ class Molsketch < Formula
     system "false"
   end
 end
+
+__END__
+--- Molsketch-0.4.0.orig/CMakeLists.txt	2017-01-04 14:34:34.000000000 +0100
++++ Molsketch-0.4.0/CMakeLists.txt	2017-01-21 19:32:18.000000000 +0100
+@@ -111,11 +111,15 @@
+
+ list(APPEND mskprefix "Global prefix" MSK_INSTALL_PREFIX /usr/local "C:/Program Files/MolsKetch")
+ list(APPEND mskbins Executable MSK_INSTALL_BINS /bin "")
+-if( CMAKE_SIZEOF_VOID_P EQUAL 8 )
+-	list(APPEND msklibs Libraries MSK_INSTALL_LIBS /lib64 "")
+-else( CMAKE_SIZEOF_VOID_P EQUAL 8 )
++if(APPLE)
+ 	list(APPEND msklibs Libraries MSK_INSTALL_LIBS /lib "")
+-endif( CMAKE_SIZEOF_VOID_P EQUAL 8 )
++elseif(APPLE)
++  if( CMAKE_SIZEOF_VOID_P EQUAL 8 )
++  	list(APPEND msklibs Libraries MSK_INSTALL_LIBS /lib64 "")
++  else( CMAKE_SIZEOF_VOID_P EQUAL 8 )
++  	list(APPEND msklibs Libraries MSK_INSTALL_LIBS /lib "")
++  endif( CMAKE_SIZEOF_VOID_P EQUAL 8 )
++endif(APPLE)
+ list(APPEND mskincludes Headers MSK_INSTALL_INCLUDES /include/molsketch /include)
+ list(APPEND mskdocs Documentation MSK_INSTALL_DOCS /share/doc/molsketch /doc)
