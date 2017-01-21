@@ -15,7 +15,6 @@ class Molsketch < Formula
     mkdir "build" do
       args = std_cmake_args
       args << "-DCMAKE_PREFIX_PATH=#{Formula["qt5"]}"
-      args << "-DMSK_STATIC_LIB=TRUE"
       args << ".."
       system "cmake", *args
       system "make"
