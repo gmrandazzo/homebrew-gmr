@@ -10,18 +10,15 @@ class Molsketch < Formula
   depends_on "qt5"
 
   def install
-    system "qmake", "Molsketch.pro", "PREFIX=#{prefix}"
-    system "make"
-    system "make", "install"
-    #mkdir "build" do
-    #  args = std_cmake_args
-    #  args << "-DCMAKE_PREFIX_PATH=#{Formula["qt5"]}"
-    #  args << "-DCMAKE_MACOSX_RPATH=1"
-    #  args << ".."
-    #  system "cmake", *args
-    #  system "make"
-    #  system "make", "install"
-    #end
+    mkdir "build" do
+      args = std_cmake_args
+      args << "-DCMAKE_PREFIX_PATH=#{Formula["qt5"]}"
+      args << "-DMSK_STATIC_LIB=TRUE"
+      args << ".."
+      system "cmake", *args
+      system "make"
+      system "make", "install"
+    end
   end
 
   test do
