@@ -16,6 +16,7 @@ class Molsketch < Formula
       args = std_cmake_args
       args << "-Wno-dev"
       args << "-DCMAKE_PREFIX_PATH=#{Formula["qt"]}"
+      args << "-DMSK_INSTALL_PREFIX=#{prefix}"
       args << ".."
       system "cmake", *args
       system "make"
@@ -27,3 +28,18 @@ class Molsketch < Formula
     system "false"
   end
 end
+
+__END__
+--- Molsketch-0.5.0.orig/molsketch/CMakeLists.txt	2017-09-26 08:34:00.000000000 +0200
++++ Molsketch-0.5.0/molsketch/CMakeLists.txt	2017-11-06 13:51:34.000000000 +0100
+@@ -58,7 +58,7 @@
+
+ # Install menu entries on Linux
+ if(UNIX)
+-  install(FILES ${PROJECT_SOURCE_DIR}/molsketch/src/molsketch.desktop DESTINATION share/applications)
+-  install(FILES ${PROJECT_SOURCE_DIR}/molsketch/src/images/molsketch.xpm DESTINATION share/pixmaps)
+-  install(FILES ${PROJECT_SOURCE_DIR}/molsketch/src/images/molsketch.svg DESTINATION share/icons/hicolor/scalable/apps)
++  install(FILES ${PROJECT_SOURCE_DIR}/molsketch/molsketch.desktop DESTINATION share/applications)
++  install(FILES ${PROJECT_SOURCE_DIR}/molsketch/images/molsketch.xpm DESTINATION share/pixmaps)
++  install(FILES ${PROJECT_SOURCE_DIR}/molsketch/images/molsketch.svg DESTINATION share/icons/hicolor/scalable/apps)
+ endif(UNIX)
