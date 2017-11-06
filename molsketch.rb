@@ -7,7 +7,7 @@ class Molsketch < Formula
 
   depends_on "cmake" => :build
   depends_on "open-babel"
-  depends_on "qt5"
+  depends_on "qt"
 
   patch :DATA
 
