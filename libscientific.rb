@@ -4,6 +4,15 @@ class Libscientific < Formula
   homepage "https://github.com/gmrandazzo/libscientific"
   head "https://github.com/gmrandazzo/libscientific.git"
   depends_on "cmake" => :build
+  depends_on "python@3.10"
+  depends_on "python"
+
+  def pythons
+    deps.map(&:to_formula)
+        .select { |f| f.name.match?(/^python@\d\.\d+$/) }
+        .sort_by(&:version) # so that `bin/f2py` and `bin/f2py3` use python3.10
+        .map { |f| f.opt_libexec/"bin/python" }
+  end
 
   def install
     mkdir "build" do
@@ -11,6 +20,13 @@ class Libscientific < Formula
       system "cmake", "..", *args
       system "make"
       system "make install"
+    end
+    cd "src/python_bindings" do
+      pythons.each do |python|
+        site_packages = Language::Python.site_packages(python)
+        system python, "setup.py", "build"
+        system python, *Language::Python.setup_install_args(prefix, python)
+      end
     end
   end
 
@@ -27,5 +43,12 @@ class Libscientific < Formula
     EOS
     system ENV.cc, "-I#{include}", "test.c", "-o", "test", "-L#{lib}", "-lscientific"
     system "./test"
+    
+    pythons.each do |python|
+      system python, "-c", <<~EOS
+        import libscientific
+        assert libscientific.__version__
+      EOS
+    end
   end
 end
