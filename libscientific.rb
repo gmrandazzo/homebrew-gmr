@@ -4,7 +4,6 @@ class Libscientific < Formula
   homepage "https://github.com/gmrandazzo/libscientific"
   head "https://github.com/gmrandazzo/libscientific.git"
   depends_on "cmake" => :build
-  depends_on "python@3.10"
   depends_on "python"
 
   def pythons
@@ -24,7 +23,7 @@ class Libscientific < Formula
     cd "src/python_bindings" do
       pythons.each do |python|
         site_packages = Language::Python.site_packages(python)
-        system python, "setup.py", "build"
+        system python, "-m", "pip", "install", "."
         system python, *Language::Python.setup_install_args(prefix, python)
       end
     end
