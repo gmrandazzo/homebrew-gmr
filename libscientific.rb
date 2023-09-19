@@ -5,6 +5,7 @@ class Libscientific < Formula
   head "https://github.com/gmrandazzo/libscientific.git"
   depends_on "cmake" => :build
   depends_on "python"
+  depends_on "sqlite"
 
   def pythons
     deps.map(&:to_formula)
