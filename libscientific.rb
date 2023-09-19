@@ -25,7 +25,7 @@ class Libscientific < Formula
       pythons.each do |python|
         site_packages = Language::Python.site_packages(python)
         system python, "-m", "pip", "install", "."
-        system python, *Language::Python.setup_install_args(prefix, python)
+        # system python, *Language::Python.setup_install_args(prefix, python)
       end
     end
   end
