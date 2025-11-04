@@ -1,10 +1,10 @@
 class Rdock < Formula
   desc "Molecular docking program for virtual screening"
-  homepage "https://github.com/CBDD/rDock"
-  url "https://github.com/CBDD/rDock.git"
+  homepage "https://rdock.github.io/"
+  url "https://rdock.github.io/"
   version "latest"
   license "GPL-3.0-or-later"
-  head "https://github.com/CBDD/rDock.git", branch: "master"
+  head "https://github.com/CBDD/rDock.git", branch: "main"
 
   depends_on "gcc"
   depends_on "popt"

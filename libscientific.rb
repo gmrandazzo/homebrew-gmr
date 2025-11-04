@@ -18,13 +18,11 @@ class Libscientific < Formula
       args = std_cmake_args
       system "cmake", "..", *args
       system "make"
-      system "make install"
+      system "make", "install"
     end
     cd "src/python_bindings" do
       pythons.each do |python|
-        site_packages = Language::Python.site_packages(python)
         system python, "-m", "pip", "install", "."
-        # system python, *Language::Python.setup_install_args(prefix, python)
       end
     end
   end
@@ -33,7 +31,6 @@ class Libscientific < Formula
     (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include <scientific.h>
-      
       int main(void)
       {    
 	printf(\"scientific version: %s\\n\", GetScientificVersion());
@@ -42,7 +39,7 @@ class Libscientific < Formula
     EOS
     system ENV.cc, "-I#{include}", "test.c", "-o", "test", "-L#{lib}", "-lscientific"
     system "./test"
-    
+
     pythons.each do |python|
       system python, "-c", <<~EOS
         import libscientific
