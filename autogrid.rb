@@ -3,14 +3,14 @@ class Autogrid < Formula
   homepage "http://autodock.scripps.edu/"
   url "https://github.com/ccsb-scripps/AutoGrid.git", revision: "HEAD"
   version "4.2.7"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "gcc"
 
-def install
+  def install
     system "autoreconf", "-i"
     mkdir "build" do
       system "../configure", "--prefix=#{prefix}"

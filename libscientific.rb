@@ -1,8 +1,9 @@
 require "formula"
 
 class Libscientific < Formula
+  desc "C framework for statistical and multivariate analysis"
   homepage "https://github.com/gmrandazzo/libscientific"
-  head "https://github.com/gmrandazzo/libscientific.git"
+  head "https://github.com/gmrandazzo/libscientific.git", branch: "main"
   depends_on "cmake" => :build
   depends_on "python"
   depends_on "sqlite"

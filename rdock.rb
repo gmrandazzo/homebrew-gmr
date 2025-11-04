@@ -22,4 +22,3 @@ class Rdock < Formula
     system "#{bin}/rbcavity", "--help"
   end
 end
-

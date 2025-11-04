@@ -3,7 +3,7 @@ class Autodock4 < Formula
   homepage "https://github.com/ccsb-scripps/AutoDock4"
   url "https://github.com/ccsb-scripps/AutoDock4.git", revision: "HEAD"
   version "4.2.6"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
