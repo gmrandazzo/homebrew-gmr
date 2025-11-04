@@ -1,5 +1,3 @@
-require "formula"
-
 class Libscientific < Formula
   desc "C framework for statistical and multivariate analysis"
   homepage "https://github.com/gmrandazzo/libscientific"
