@@ -22,7 +22,10 @@ class Libscientific < Formula
     end
     cd "src/python_bindings" do
       pythons.each do |python|
-        system python, "-m", "pip", "install", "."
+        system python, "-m", "pip", "install", ".", 
+               "--break-system-packages", 
+               "--no-deps", 
+               "--prefix=#{prefix}"
       end
     end
   end
